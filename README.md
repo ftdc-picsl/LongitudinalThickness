@@ -7,7 +7,7 @@ Development of longitudinal cortical thickness pipelines.
 
 * [antsnetct](https://github.com/ftdc-picsl/antsnetct) performs neck trimming, brain extraction, segmentation, cortical thickness estimation, and normalization to a template. Both cross-sectional and longitudinal pipelines are supported.
 
-* [synthseg](https://github.com/ftdc-picsl/SynthSeg) runs synthseg on the GPU and can generate priors for antsnetct.
+* [SynthSeg](https://github.com/ftdc-picsl/SynthSeg) runs synthseg on the GPU and can generate priors for antsnetct.
 
 All of these have wrapper scripts for PMACS users under
 
