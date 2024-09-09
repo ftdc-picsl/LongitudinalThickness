@@ -25,9 +25,9 @@ We will use wrapper scripts to run the individual steps. The wrapper scripts are
 `/project/ftdc_pipeline/ftdc-picsl`. Specifically, we will use:
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/
-                                 pmacsT1wPreprocessing-0.4.1/bin/submit_preproc.sh
-                                 pmacsSynthSeg-0.3.0/bin/submit_synthseg_session.sh
-                                 pmacsAntsnetct-0.1.0/bin/submit_antsnetct.sh
+                                 pmacsT1wPreprocessing-0.4.2/bin/submit_preproc.sh
+                                 pmacsSynthSeg-0.3.2/bin/submit_synthseg_session.sh
+                                 pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh
 ```
 These scripts handle bsub submission, expect BIDS input, and produce BIDS derivative
 datasets.
@@ -111,7 +111,7 @@ process a list of selected T1w images in a BIDS dataset. We will demonstrate the
 single-session interface here.
 ```bash
 for sess in HUP6x20240509x1351 SC3Tx20240605x1610; do
-    /project/ftdc_pipeline/ftdc-picsl/pmacsSynthSeg-0.3.0/bin/submit_synthseg_session.sh \
+    /project/ftdc_pipeline/ftdc-picsl/pmacsSynthSeg-0.3.2/bin/submit_synthseg_session.sh \
         -a 1 \
         -p 1 \
         -m ${PWD}/workdir/brain_masks \
