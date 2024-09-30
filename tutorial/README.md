@@ -155,7 +155,7 @@ output in the original session space is the `space-orig` files.
 The general usage is:
 
 ```bash
-/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.1.0/bin/submit_antsnetct.sh -B bind_list \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh -B bind_list \
   -i input_data -m mem_mb -n nslots -o output_data -v antsnetct_version -- \
   [antsnetct_options]
 ```
@@ -275,7 +275,7 @@ Cortical thickness and other derivatives are resampled to the template space.
     -m 16000 \
     -n 4 \
     -o /data/workdir/antsnetct \
-    -v 0.1.0 \
+    -v 0.2.0 \
     -- \
     --participant JP01 \
     --session SC3Tx20240605x1610 \
@@ -351,13 +351,13 @@ Cortical thickness computation is identical to the cross-sectional pipeline.
 ## Longitudinal example command
 
 ```bash
-/project/ftdc_misc/pcook/code/pmacsAntsnetct/bin/submit_antsnetct.sh \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
     -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg \
     -i ${PWD}/workdir/cx_output \
     -o ${PWD}/workdir/long_output \
     -n 4 \
     -m 16000 \
-    -v 0.1.4 \
+    -v 0.2.0 \
     -- \
     --longitudinal \
     --sst-segmentation-method cx \
