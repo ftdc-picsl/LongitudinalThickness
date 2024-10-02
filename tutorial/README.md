@@ -189,7 +189,7 @@ created. A log directory `code/logs` will be created under this directory.
 
 ### `-v` antsnetct_version
 
-The version of the ANTsNetCT container to use.
+The version of the ANTsNetCT container to use. This is distinct from the wrapper version.
 
 
 ## Cross-sectional analysis
@@ -270,11 +270,11 @@ Cortical thickness and other derivatives are resampled to the template space.
 
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
-    -B /path/to/input_bids:/data/input_bids,/path/to/workdir:/data/workdir \
-    -i /data/input_bids \
+    -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg
+    -i ${PWD}/input_bids \
     -m 16000 \
     -n 4 \
-    -o /data/workdir/antsnetct \
+    -o ${PWD}/workdir/antsnetct \
     -v 0.2.0 \
     -- \
     --participant JP01 \
@@ -292,6 +292,29 @@ not recommended for final results.
 
 Run the same command for the `HUP6x20240509x1351` session, to be ready for the
 longitudinal processing.
+
+
+## Cross-sectional example with deep atropos priors
+
+By removing the `--segmentation-dataset` arg, we can use ANTsPyNet deep_atropos for segmentation. The option `--do-ants-atropos-n4` instructs antsnetct to use the deep Atropos segmentation as a prior for classical processing with `antsAtroposN4.sh`.
+
+```bash
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
+    -B ${PWD}/workdir/brain_masks:/data/masks
+    -i ${PWD}/input_bids \
+    -m 16000 \
+    -n 4 \
+    -o ${PWD}/workdir/antsnetct \
+    -v 0.2.0 \
+    -- \
+    --participant JP01 \
+    --session SC3Tx20240605x1610 \
+    --brain-mask-dataset /data/masks \
+    --do-ants-atropos-n4 \
+    --thickness-iterations 5 \
+    --template-name ADNINormalAgingANTs \
+    --template-reg-quick
+```
 
 
 ## Longitudinal analysis
@@ -352,7 +375,6 @@ Cortical thickness computation is identical to the cross-sectional pipeline.
 
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
-    -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg \
     -i ${PWD}/workdir/cx_output \
     -o ${PWD}/workdir/long_output \
     -n 4 \
