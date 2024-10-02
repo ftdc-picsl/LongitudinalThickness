@@ -25,7 +25,7 @@ We will use wrapper scripts to run the individual steps. The wrapper scripts are
 `/project/ftdc_pipeline/ftdc-picsl`. Specifically, we will use:
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/
-                                 pmacsT1wPreprocessing-0.4.2/bin/submit_preproc.sh
+                                 pmacsT1wPreprocessing-0.4.3/bin/submit_preproc.sh
                                  pmacsSynthSeg-0.3.2/bin/submit_synthseg_session.sh
                                  pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh
 ```
@@ -51,7 +51,7 @@ participant on each line.
 
 echo "JP01" > workdir/preproc.txt
 
-/project/ftdc_pipeline/ftdc-picsl/pmacsT1wPreprocessing-0.4.1/bin/submit_preproc.sh \
+/project/ftdc_pipeline/ftdc-picsl/pmacsT1wPreprocessing-0.4.3/bin/submit_preproc.sh \
   -i $PWD/input_bids \
   -o $PWD/workdir/brain_masks \
   workdir/preproc.txt \
