@@ -101,10 +101,14 @@ overlaid in three planes.
 
 ## SynthSeg
 
-Synthseg is a deep learning-based segmentation tool that segments the brain into cortical
+SynthSeg is a deep learning-based segmentation tool that segments the brain into cortical
 and subcortical regions. Our wrapper tool has a BIDS interface and uses an existing brain
 mask to center the synthseg ROI on the brain. It also combines the output probability maps
-into six classes expected by `antsCortcialThickness.sh`.
+into six classes expected by `antsCorticalThickness.sh`.
+
+Using SynthSeg is optionak, we run it here to demonstrate how an external segmentation can
+be incorporated into antsnetct. If an external segmentation is not defined, segmentation is
+computed by antsnetct using ANTsPyNet.
 
 There are two interfaces to `pmacsSynthSeg`, one to process a single session, another to
 process a list of selected T1w images in a BIDS dataset. We will demonstrate the
