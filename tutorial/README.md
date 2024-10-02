@@ -27,7 +27,7 @@ We will use wrapper scripts to run the individual steps. The wrapper scripts are
 /project/ftdc_pipeline/ftdc-picsl/
                                  pmacsT1wPreprocessing-0.4.3/bin/submit_preproc.sh
                                  pmacsSynthSeg-0.3.2/bin/submit_synthseg_session.sh
-                                 pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh
+                                 pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh
 ```
 These scripts handle bsub submission, expect BIDS input, and produce BIDS derivative
 datasets.
@@ -159,7 +159,7 @@ output in the original session space is the `space-orig` files.
 The general usage is:
 
 ```bash
-/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh -B bind_list \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh -B bind_list \
   -i input_data -m mem_mb -n nslots -o output_data -v antsnetct_version -- \
   [antsnetct_options]
 ```
@@ -273,7 +273,7 @@ Cortical thickness and other derivatives are resampled to the template space.
 ## Cross-sectional example command
 
 ```bash
-/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh \
     -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg
     -i ${PWD}/input_bids \
     -m 16000 \
@@ -303,7 +303,7 @@ longitudinal processing.
 By removing the `--segmentation-dataset` arg, we can use ANTsPyNet deep_atropos for segmentation. The option `--do-ants-atropos-n4` instructs antsnetct to use the deep Atropos segmentation as a prior for classical processing with `antsAtroposN4.sh`.
 
 ```bash
-/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh \
     -B ${PWD}/workdir/brain_masks:/data/masks
     -i ${PWD}/input_bids \
     -m 16000 \
@@ -378,7 +378,7 @@ Cortical thickness computation is identical to the cross-sectional pipeline.
 ## Longitudinal example command
 
 ```bash
-/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.0/bin/submit_antsnetct.sh \
+/project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh \
     -i ${PWD}/workdir/cx_output \
     -o ${PWD}/workdir/long_output \
     -n 4 \
