@@ -279,7 +279,7 @@ Cortical thickness and other derivatives are resampled to the template space.
     -m 16000 \
     -n 4 \
     -o ${PWD}/workdir/cx_output \
-    -v 0.2.0 \
+    -v 0.2.1 \
     -- \
     --participant JP01 \
     --session SC3Tx20240605x1610 \
@@ -309,7 +309,7 @@ By removing the `--segmentation-dataset` arg, we can use ANTsPyNet deep_atropos 
     -m 16000 \
     -n 4 \
     -o ${PWD}/workdir/cx_output \
-    -v 0.2.0 \
+    -v 0.2.1 \
     -- \
     --participant JP01 \
     --session SC3Tx20240605x1610 \
@@ -383,7 +383,7 @@ Cortical thickness computation is identical to the cross-sectional pipeline.
     -o ${PWD}/workdir/long_output \
     -n 4 \
     -m 16000 \
-    -v 0.2.0 \
+    -v 0.2.1 \
     -- \
     --longitudinal \
     --sst-segmentation-method cx \
@@ -400,46 +400,46 @@ Output for the longitudinal pipeline is at both the session and participant leve
 tree below does not include BIDS sidecar files, which are also generated.
 
 ```bash
-└── sub-JP01
-    ├── anat
-    │   ├── sub-JP01_desc-brain_mask.nii.gz
-    │   ├── sub-JP01_desc-brain_T1w.nii.gz
-    │   ├── sub-JP01_from-ADNINormalAgingANTs_to-T1w_mode-image_xfm.h5
-    │   ├── sub-JP01_from-T1w_to-ADNINormalAgingANTs_mode-image_xfm.h5
-    │   ├── sub-JP01_seg-antsnetct_dseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-BS_probseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-CBM_probseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-CGM_probseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-CSF_probseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-SGM_probseg.nii.gz
-    │   ├── sub-JP01_seg-antsnetct_label-WM_probseg.nii.gz
-    │   └── sub-JP01_T1w.nii.gz
-    ├── ses-HUP6x20240509x1351
-    │   └── anat
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-biascorrbrain_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-biascorr_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-brain_mask.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-preproc_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_from-sst_to-T1w_mode-image_xfm.h5
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_from-T1w_to-sst_mode-image_xfm.h5
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_desc-thickness.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_dseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-BS_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CBM_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CGM_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CSF_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-SGM_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-WM_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_desc-biascorrbrain_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_desc-thickness.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_label-GM_probseg.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-biascorrbrain_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-biascorr_T1w.nii.gz
-    │       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-thickness.nii.gz
-    │       └── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_label-GM_probseg.nii.gz
-    └── ses-SC3Tx20240605x1610
-        └── anat
-        [similar to HUP6 session]
+sub-JP01
+├── anat
+│   ├── sub-JP01_desc-brain_mask.nii.gz
+│   ├── sub-JP01_desc-brain_T1w.nii.gz
+│   ├── sub-JP01_from-ADNINormalAgingANTs_to-T1w_mode-image_xfm.h5
+│   ├── sub-JP01_from-T1w_to-ADNINormalAgingANTs_mode-image_xfm.h5
+│   ├── sub-JP01_seg-antsnetct_dseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-BS_probseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-CBM_probseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-CGM_probseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-CSF_probseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-SGM_probseg.nii.gz
+│   ├── sub-JP01_seg-antsnetct_label-WM_probseg.nii.gz
+│   └── sub-JP01_T1w.nii.gz
+├── ses-HUP6x20240509x1351
+│   └── anat
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-biascorrbrain_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-biascorr_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-brain_mask.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_desc-preproc_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_from-sst_to-T1w_mode-image_xfm.h5
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_from-T1w_to-sst_mode-image_xfm.h5
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_desc-thickness.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_dseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-BS_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CBM_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CGM_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-CSF_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-SGM_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_seg-antsnetct_label-WM_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_desc-biascorrbrain_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_desc-thickness.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-ADNINormalAgingANTs_res-01_label-CGM_probseg.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-biascorrbrain_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-biascorr_T1w.nii.gz
+│       ├── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_desc-thickness.nii.gz
+│       └── sub-JP01_ses-HUP6x20240509x1351_acq-sag_rec-gradwarp_space-sst_label-CGM_probseg.nii.gz
+└── ses-SC3Tx20240605x1610
+    └── anat
+        ├── [ similar output for this session ]
 ```
 
 The participant-level `anat/` directory contains the SST and its brain mask, its
