@@ -274,7 +274,7 @@ Cortical thickness and other derivatives are resampled to the template space.
 
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh \
-    -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg
+    -B ${PWD}/workdir/brain_masks:/data/masks,${PWD}/workdir/synthseg:/data/synthseg \
     -i ${PWD}/input_bids \
     -m 16000 \
     -n 4 \
@@ -304,7 +304,7 @@ By removing the `--segmentation-dataset` arg, we can use ANTsPyNet deep_atropos 
 
 ```bash
 /project/ftdc_pipeline/ftdc-picsl/pmacsAntsnetct-0.2.1/bin/submit_antsnetct.sh \
-    -B ${PWD}/workdir/brain_masks:/data/masks
+    -B ${PWD}/workdir/brain_masks:/data/masks \
     -i ${PWD}/input_bids \
     -m 16000 \
     -n 4 \
