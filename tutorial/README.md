@@ -278,7 +278,7 @@ Cortical thickness and other derivatives are resampled to the template space.
     -i ${PWD}/input_bids \
     -m 16000 \
     -n 4 \
-    -o ${PWD}/workdir/antsnetct \
+    -o ${PWD}/workdir/cx_output \
     -v 0.2.0 \
     -- \
     --participant JP01 \
@@ -308,7 +308,7 @@ By removing the `--segmentation-dataset` arg, we can use ANTsPyNet deep_atropos 
     -i ${PWD}/input_bids \
     -m 16000 \
     -n 4 \
-    -o ${PWD}/workdir/antsnetct \
+    -o ${PWD}/workdir/cx_output \
     -v 0.2.0 \
     -- \
     --participant JP01 \
